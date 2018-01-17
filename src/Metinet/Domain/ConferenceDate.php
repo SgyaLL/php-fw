@@ -9,7 +9,7 @@
 namespace Metinet\Domain;
 
 
-class EventDate
+class ConferenceDate
 {
     private $id;
     private $start;
@@ -19,7 +19,7 @@ class EventDate
     private $event;
 
 
-    public function __construct(int $id, int $start, int $end,string $hour, Room $room, Event $event)
+    public function __construct(int $id, int $start, int $end, string $hour, Room $room, Conference $event)
     {
         $this->id = $id;
         $this->start = $start;
@@ -31,14 +31,21 @@ class EventDate
     }
 
 
-    public function getDay(): string
+    public function getStartDay(): int
     {
         return $this->start;
-        return $this->end;
-        return $this->hour;
+
     }
+    public function getEndDay(): int
+    {
+        return $this->end;
 
+    }
+    public function getHour(): int
+    {
+        return $this->hour;
 
+    }
 
     public function getRoom(): string
     {

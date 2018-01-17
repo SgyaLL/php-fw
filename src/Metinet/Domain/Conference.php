@@ -9,7 +9,7 @@
 namespace Metinet\Domain;
 
 
-class Event
+class Conference
 {
     private $id;
     private $name;
@@ -52,6 +52,11 @@ class Event
     public function getPrivate(): Boolean
     {
         return $this->allowedToExternalPeople;
+    }
+
+    public function addEvent(){
+
+
     }
 
 }
