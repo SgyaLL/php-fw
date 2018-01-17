@@ -34,19 +34,19 @@ class Room
         return $this->name;
     }
 
-    public function getDescription(): string
+    public function getCapacity(): string
     {
-        return $this->description;
+        return $this->capacity;
     }
 
-    public function getGoal(): string
+    public function getType(): string
     {
-        return $this->goal;
+        return $this->type;
     }
 
-    public function getDateOfBirth(): DateOfBirth
+    public function getArea(): int
     {
-        return $this->dateOfBirth;
+        return $this->area;
     }
 
 }

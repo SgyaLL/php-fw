@@ -12,16 +12,18 @@ namespace Metinet\Domain;
 class EventDate
 {
     private $id;
-    private $day;
+    private $start;
+    private $end;
     private $hour;
     private $room;
     private $event;
 
 
-    public function __construct(int $id, int $day,string $hour, Room $room, Event $event)
+    public function __construct(int $id, int $start, int $end,string $hour, Room $room, Event $event)
     {
         $this->id = $id;
-        $this->day = $day;
+        $this->start = $start;
+        $this->end = $end;
         $this->hour = $hour;
         $this->room = $room;
         $this->event = $event;
@@ -29,18 +31,21 @@ class EventDate
     }
 
 
-    public function getName(): string
+    public function getDay(): string
     {
-        return $this->name;
+        return $this->start;
+        return $this->end;
+        return $this->hour;
     }
 
-    public function getDescription(): string
-    {
-        return $this->description;
-    }
 
-    public function getGoal(): string
+
+    public function getRoom(): string
     {
-        return $this->goal;
+        return $this->room;
+    }
+    public function getEvent(): string
+    {
+        return $this->event;
     }
 }
