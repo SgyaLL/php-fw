@@ -11,22 +11,30 @@ namespace Metinet\Domain;
 
 class Attendee
 {
-
+    private $id;
     private $firstName;
     private $lastName;
     private $telephoneNumber;
     private $email;
     private $dateOfBirth;
+    private $payed;
 
 
-    public function __construct(string $firstName, string $lastName, int $telephoneNumber,Email $email, DateOfBirth $dateOfBirth)
+    public function __construct(int $id, string $firstName, string $lastName, int $telephoneNumber, Email $email, DateOfBirth $dateOfBirth, bool $payed)
     {
+        $this->id = $id;
         $this->firstName = $firstName;
         $this->lastName = $lastName;
         $this->telephoneNumber = $telephoneNumber;
         $this->email = $email;
         $this->dateOfBirth = $dateOfBirth;
+        $this->payed = $payed;
 
+    }
+
+    public function getId(): int
+    {
+        return $this-id;
     }
 
     public function getFirstName(): string
@@ -38,6 +46,7 @@ class Attendee
     {
         return $this->lastName;
     }
+
     public function getTelephoneNumber(): int
     {
         return $this->telephoneNumber;
@@ -54,9 +63,14 @@ class Attendee
     }
 
 
+    public function Pay()
+    {
+        if (!$this->id && !$this->payed) {
+            $this->payed = true;
+        } else {
+            throw new \LogicException('no need to pay');
+        }
 
 
-
-
-
+    }
 }

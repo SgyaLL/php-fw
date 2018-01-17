@@ -16,17 +16,19 @@ class ConferenceDate
     private $end;
     private $hour;
     private $room;
-    private $event;
+    private $conference;
+    private $maxCapacity;
+    private $participants = [];
 
-
-    public function __construct(int $id, int $start, int $end, string $hour, Room $room, Conference $event)
+    public function __construct(int $id, int $start, int $end, string $hour, Room $room, Conference $conference,int $maxCapacity)
     {
         $this->id = $id;
         $this->start = $start;
         $this->end = $end;
         $this->hour = $hour;
         $this->room = $room;
-        $this->event = $event;
+        $this->conference = $conference;
+        $this->maxCapacity = $maxCapacity;
 
     }
 
@@ -51,8 +53,44 @@ class ConferenceDate
     {
         return $this->room;
     }
-    public function getEvent(): string
+    public function getConference(): string
     {
-        return $this->event;
+        return $this->conference;
     }
+
+    public function getMaxCapacity(): int
+    {
+        return $this->maxCapacity;
+    }
+
+    public function inscriptionToEvent(Attendee $attendee,Conference $conference, Room $room)
+    { if($this->eventComplete($room)) {
+        //if events private
+        if ($conference->getAllowedToExternalPeople()) {
+            if($attendee->getId()){
+                $this->participants[] = $attendee->getId();
+            }
+            else{
+                throw new \LogicException('Must be student');
+            }
+        } //not private
+        else {
+            $this->participants[] = $attendee->getId();
+        }
+    }
+
+    else{
+
+        throw new \LogicException('Sorry this event is complete');
+    }
+    }
+    public function eventComplete(Room $room){
+        if($room->getCapacity() >= $this->maxCapacity) {
+            return false;
+        }
+
+        return true;
+    }
+
+
 }

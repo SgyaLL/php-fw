@@ -17,6 +17,7 @@ class Conference
     private $description;
     private $goal;
     private $allowedToExternalPeople;
+    private $maxCapacity;
 
 
     public function __construct(int $id,string $name, string $address, string $description,string $goal ,int $day, int $hour, bool $allowedToExternalPeople)
@@ -27,6 +28,7 @@ class Conference
         $this->description = $description;
         $this->goal = $goal;
         $this->allowedToExternalPeople = $allowedToExternalPeople;
+
 
     }
 
@@ -49,14 +51,13 @@ class Conference
         return $this->goal;
     }
 
-    public function getPrivate(): Boolean
+    public function getAllowedToExternalPeople(): Boolean
     {
         return $this->allowedToExternalPeople;
     }
 
-    public function addEvent(){
 
 
-    }
+
 
 }
