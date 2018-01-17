@@ -21,11 +21,20 @@ class ConferenceController
     public  function retrieveConferenceList(Request $request): Response
     {
         $conferences = [
-            ['id' => '1','name' => 'First party','address' => 'Time Square','description' => 'party','goal' => 'remember past', 'allowedToExternalPeople' => true]
+            ['id' => '1','name' => 'Gang of New York','address' => 'New York','description' => 'Charity','goal' => 'Be poor', 'allowedToExternalPeople' => true],
+            ['id' => '2','name' => 'From Paris with love','address' => 'Paris ','description' => 'Money','goal' => 'Be rich', 'allowedToExternalPeople' => false]
         ];
-        $content = sprintf('<p>List of conferences</p>');
+        $content = sprintf('<h1>List of conferences</h1>');
+        $number = 1;
         foreach ($conferences as $conference) {
-            $content .= sprintf('<li>%s</li>', $conference['name']);
+            $content .= sprintf('<ul>');
+            $content .= sprintf('<h2>Conference number '.$number.' : </h2>');
+            $content .= sprintf(' <li style="list-style: none;">Name : %s</li>', $conference['name']);
+            $content .= sprintf(' <li style="list-style: none;">Address : %s</li>', $conference['address']);
+            $content .= sprintf(' <li style="list-style: none;">Description : %s</li>', $conference['description']);
+            $content .= sprintf(' <li style="list-style: none;">Goal : %s</li>', $conference['goal']);
+            $content .= sprintf('</ul>');
+            $number += 1;
         }
 
         return new Response($content);

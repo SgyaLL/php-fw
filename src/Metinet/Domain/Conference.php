@@ -17,7 +17,7 @@ class Conference
     private $description;
     private $goal;
     private $allowedToExternalPeople;
-    private $maxCapacity;
+
 
 
     public function __construct(int $id,string $name, string $address, string $description,string $goal ,int $day, int $hour, bool $allowedToExternalPeople)
