@@ -3,38 +3,35 @@
  * Created by PhpStorm.
  * User: lp
  * Date: 17/01/2018
- * Time: 11:21
+ * Time: 11:41
  */
 
 namespace Metinet\Domain;
 
 
-class Event
+class Room
 {
+
     private $id;
     private $name;
-    private $address;
-    private $description;
-    private $goal;
+    private $capacity;
+    private $type;
+    private $area;
 
 
-    public function __construct(int $id, string $name, string $address, string $description,string $goal ,int $day, int $hour)
+    public function __construct(int $id, string $name,string $capacity,string $type ,int $area)
     {
         $this->id = $id;
         $this->name = $name;
-        $this->address = $address;
-        $this->description = $description;
-        $this->goal = $goal;
+        $this->capacity = $capacity;
+        $this->type = $type;
+        $this->area = $area;
 
     }
 
     public function getName(): string
     {
         return $this->name;
-    }
-    public function getAddress(): string
-    {
-        return $this->address;
     }
 
     public function getDescription(): string
