@@ -1,10 +1,17 @@
 {
   "logger": {
-    "type": "mysql",
+    "type": "file",
     "path": "../var/logs/debug.log",
     "format": "[%date%] - %url% - %message%"
   },
   "routes": {
+    "conference": {
+      "path": "/conference",
+      "methods": [
+        "GET"
+      ],
+      "action": "Metinet:Controllers:ConferenceController::retrieveConferenceList"
+    },
     "candidates": {
       "path": "/students",
       "methods": [

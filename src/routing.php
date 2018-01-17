@@ -8,4 +8,6 @@ $routes[] = new Route(['GET'], '/students', 'retrieveMemberList');
 $routes[] = new Route(['GET'], '/candidates', 'retrieveMemberList');
 $routes[] = new Route(['GET'], '/students/sponsor', 'retrieveMemberList');
 
+$routes[] = new Route(['GET'], '/conference', 'retrieveConferenceList');
+
 return $routes;

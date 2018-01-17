@@ -1,6 +1,13 @@
 {
   "routes": {
     "candidates": {
+      "path": "/conference",
+      "methods": [
+        "GET"
+      ],
+      "action": "Metinet:Controllers:ConferenceController::retrieveConferenceList"
+    },
+    "candidates": {
       "path": "/students",
       "methods": [
         "GET"

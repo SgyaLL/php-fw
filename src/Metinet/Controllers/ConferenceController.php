@@ -14,14 +14,14 @@ use Metinet\Core\Http\Response;
 class ConferenceController
 {
 
-    public function sayHello(Request $request): Response
+    public function testConference(Request $request): Response
     {
         return new Response(sprintf('<p>%s</p>', $request->getQuery()->get('name', 'Anonymous')));
     }
     public  function retrieveConferenceList(Request $request): Response
     {
         $conferences = [
-            ['name' => 'Boris', 'birthday' => '1984-08-21']
+            ['id' => '1','name' => 'First party','address' => 'Time Square','description' => 'party','goal' => 'remember past', 'allowedToExternalPeople' => true]
         ];
         $content = sprintf('<p>List of conferences</p>');
         foreach ($conferences as $conference) {

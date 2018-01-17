@@ -36,6 +36,9 @@ class Request
         foreach ($_SERVER as $key => $value) {
             if (0 === strpos($key, 'HTTP_')) {
                 $name = strtolower(str_replace('_', '-', substr($key, 5)));
+                //$address = strtolower(str_replace('_', '-', substr($key, 5)));
+                //$description = strtolower(str_replace('_', '-', substr($key, 5)));
+                //$goal = strtolower(str_replace('_', '-', substr($key, 5)));
                 $headers[$name] = $value;
             }
         }
