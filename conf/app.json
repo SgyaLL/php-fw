@@ -4,13 +4,26 @@
     "path": "../var/logs/debug.log",
     "format": "[%date%] - %url% - %message%"
   },
+  "templating": {
+    "layoutPath": "../src/Metinet/Resources/views/layout.html.php",
+    "viewsDirectory": "../src/Metinet/Resources/views/"
+  },
   "routes": {
+<<<<<<< HEAD
     "conference": {
       "path": "/conference",
       "methods": [
         "GET"
       ],
       "action": "Metinet:Controllers:ConferenceController::retrieveConferenceList"
+=======
+    "homepage": {
+      "path": "/",
+      "methods": [
+        "GET"
+      ],
+      "action": "Metinet:Controllers:ConferencesController::viewConferences"
+>>>>>>> master
     },
     "candidates": {
       "path": "/students",
@@ -33,10 +46,37 @@
       ],
       "action": "Metinet:Controllers:CandidatesController::disBonjour"
     },
+<<<<<<< HEAD
     "security_signup": {
             "path": "/signp",
           "methods": ["GET"],
          "action": "Metinet:Controllers:UserController::signUp"
   }
+=======
+    "submit_conference": {
+      "path": "/conferences/submit",
+      "methods": [
+        "GET"
+      ],
+      "action": "Metinet:Controllers:ConferencesController::submitNewConference"
+    },
+    "view_conferences": {
+      "path": "/conferences",
+      "methods": [
+        "GET"
+      ],
+      "action": "Metinet:Controllers:ConferencesController::viewConferences"
+    },
+    "security_login": {
+      "path": "/login",
+      "methods": ["GET", "POST"],
+      "action": "Metinet:Controllers:SecurityController::login"
+    },
+    "security_logout": {
+      "path": "/logout",
+      "methods": ["GET"],
+      "action": "Metinet:Controllers:SecurityController::logout"
+    }
+>>>>>>> master
   }
 }
